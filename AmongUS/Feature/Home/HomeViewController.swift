@@ -1,0 +1,86 @@
+//
+//  HomeViewController.swift
+//  AmongUS
+//
+//  Created by Tung Nguyen on 27/11/2020.
+//  Copyright © 2020 Tung Nguyen. All rights reserved.
+//
+
+import UIKit
+
+enum CategoryType: Int {
+    case soundBoard
+    case themeSong
+    case soundTrack
+     
+    func title() -> String {
+        switch self {
+        case .soundBoard:
+            return "Sound Board"
+        case .themeSong:
+            return "Theme Song"
+        case .soundTrack:
+            return "Sound Track"
+        }
+    }
+    
+    func image() -> UIImage {
+        switch self {
+            case .soundBoard:
+                return UIImage(named: "sound_board")!
+            case .themeSong:
+                return UIImage(named: "theme_song")!
+            case .soundTrack:
+                return UIImage(named: "sound_track")!
+        }
+    }
+}
+
+class HomeViewController: UIViewController {
+    @IBOutlet weak var tableView: UITableView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.setupTable()
+    }
+    
+    func setupTable() {
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
+        self.tableView.register(UINib(nibName: "HomeTableViewCell", bundle: nil), forCellReuseIdentifier: "kHomeTableViewCell")
+        tableView.backgroundColor = .clear
+    }
+
+}
+
+extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        3
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "kHomeTableViewCell", for: indexPath) as? HomeTableViewCell else {
+            return UITableViewCell()
+        }
+        
+        cell.categoryTitle.text = CategoryType.init(rawValue: indexPath.row)?.title()
+        cell.categoryImageView.image = CategoryType.init(rawValue: indexPath.row)?.image()
+        cell.backgroundColor = .clear
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 130
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 20
+    }
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = UIView()
+        view.backgroundColor = .clear
+        
+        return view
+    }
+}
