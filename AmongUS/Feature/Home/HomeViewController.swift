@@ -37,7 +37,10 @@ enum CategoryType: Int {
 }
 
 class HomeViewController: UIViewController {
+    
     @IBOutlet weak var tableView: UITableView!
+    
+    let rows: [CategoryType] = [.soundBoard, .themeSong, .soundTrack]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,8 +67,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         
-        cell.categoryTitle.text = CategoryType.init(rawValue: indexPath.row)?.title()
-        cell.categoryImageView.image = CategoryType.init(rawValue: indexPath.row)?.image()
+        cell.categoryTitle.text = rows[indexPath.row].title()
+        cell.categoryImageView.image = rows[indexPath.row].image()
         cell.backgroundColor = .clear
         return cell
     }
@@ -82,5 +85,16 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         view.backgroundColor = .clear
         
         return view
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch rows[indexPath.row] {
+        case .soundBoard:
+            AVPlayerManager.shared.soundList = SoundManager.shared.soundBoardList
+        case .themeSong:
+            AVPlayerManager.shared.soundList = SoundManager.shared.themeSongList
+        case .soundTrack:
+            AVPlayerManager.shared.soundList = SoundManager.shared.soundTrackList
+        }
     }
 }

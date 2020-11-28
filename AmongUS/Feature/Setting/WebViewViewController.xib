@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WebViewViewController" customModule="AmongUS" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="webView" destination="6ab-ZA-j6q" id="ruR-nM-AAg"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qdK-41-BdQ">
+                    <rect key="frame" x="20" y="64" width="40" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="40" id="uz8-1S-ZzY"/>
+                        <constraint firstAttribute="height" constant="40" id="wmV-Ei-vLN"/>
+                    </constraints>
+                    <state key="normal" image="arrow.backward" catalog="system"/>
+                    <connections>
+                        <action selector="backAction:" destination="-1" eventType="touchUpInside" id="bwX-B2-TgA"/>
+                    </connections>
+                </button>
+                <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6ab-ZA-j6q">
+                    <rect key="frame" x="0.0" y="124" width="414" height="738"/>
+                    <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <wkWebViewConfiguration key="configuration">
+                        <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                        <wkPreferences key="preferences"/>
+                    </wkWebViewConfiguration>
+                </wkWebView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="6ab-ZA-j6q" secondAttribute="bottom" id="Be5-GQ-yL8"/>
+                <constraint firstItem="6ab-ZA-j6q" firstAttribute="top" secondItem="qdK-41-BdQ" secondAttribute="bottom" constant="20" id="cNk-AP-Jc9"/>
+                <constraint firstItem="qdK-41-BdQ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="dnB-a4-Rs4"/>
+                <constraint firstItem="6ab-ZA-j6q" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="i73-WA-WEr"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="6ab-ZA-j6q" secondAttribute="trailing" id="lsx-DW-coK"/>
+                <constraint firstItem="qdK-41-BdQ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="vGH-iy-F2U"/>
+            </constraints>
+            <point key="canvasLocation" x="104" y="74"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="arrow.backward" catalog="system" width="128" height="98"/>
+    </resources>
+</document>
