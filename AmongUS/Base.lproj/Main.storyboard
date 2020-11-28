@@ -23,7 +23,7 @@
                                     <constraint firstAttribute="width" secondItem="FfO-cJ-4Na" secondAttribute="height" multiplier="375:170" id="poz-Ez-0Rh"/>
                                 </constraints>
                             </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cqh-rV-QOU">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cqh-rV-QOU">
                                 <rect key="frame" x="20" y="187.5" width="374" height="644.5"/>
                                 <color key="backgroundColor" systemColor="systemOrangeColor"/>
                             </tableView>

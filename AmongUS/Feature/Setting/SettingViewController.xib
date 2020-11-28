@@ -41,7 +41,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Xl9-eE-IHT">
-                            <rect key="frame" x="30" y="10" width="354" height="659.5"/>
+                            <rect key="frame" x="30" y="72" width="354" height="597.5"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         </tableView>
                     </subviews>
@@ -50,7 +50,7 @@
                         <constraint firstAttribute="bottom" secondItem="Xl9-eE-IHT" secondAttribute="bottom" constant="10" id="F3H-aI-f8X"/>
                         <constraint firstItem="Xl9-eE-IHT" firstAttribute="leading" secondItem="Eft-BZ-UMd" secondAttribute="leading" constant="30" id="KjV-Lx-WCA"/>
                         <constraint firstItem="Alp-mq-14x" firstAttribute="top" secondItem="Eft-BZ-UMd" secondAttribute="top" constant="20" id="QS0-gn-oaQ"/>
-                        <constraint firstItem="Xl9-eE-IHT" firstAttribute="top" secondItem="Eft-BZ-UMd" secondAttribute="top" constant="10" id="Trg-OC-rei"/>
+                        <constraint firstItem="Xl9-eE-IHT" firstAttribute="top" secondItem="Alp-mq-14x" secondAttribute="bottom" constant="10" id="Trg-OC-rei"/>
                         <constraint firstItem="Alp-mq-14x" firstAttribute="centerX" secondItem="Eft-BZ-UMd" secondAttribute="centerX" id="dGG-ji-TkQ"/>
                         <constraint firstAttribute="trailing" secondItem="Xl9-eE-IHT" secondAttribute="trailing" constant="30" id="sQ6-B5-lxk"/>
                     </constraints>

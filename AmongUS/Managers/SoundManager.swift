@@ -26,12 +26,16 @@ class SoundManager {
     
     func filter(sounds: [SoundModel]) {
         allSoundList = sounds
-        soundBoardList = sounds.filter({ $0.id == soundBoardID })
-        soundTrackList = sounds.filter({ $0.id == soundTrackID })
-        themeSongList = sounds.filter({ $0.id == themeSongID })
+        soundBoardList = sounds.filter({ $0.categoryId == soundBoardID })
+        soundTrackList = sounds.filter({ $0.categoryId == soundTrackID })
+        themeSongList = sounds.filter({ $0.categoryId == themeSongID })
         
+        save()
+    }
+    
+    func save() {
         DispatchQueue.global(qos: .background).async {
-            guard let encodedData = try? JSONEncoder().encode(sounds) else {
+            guard let encodedData = try? JSONEncoder().encode(self.allSoundList) else {
                 return
             }
             

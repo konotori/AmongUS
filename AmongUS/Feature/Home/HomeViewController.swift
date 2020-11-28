@@ -46,6 +46,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         self.setupTable()
+        navigationController?.navigationBar.barStyle = .black
     }
     
     func setupTable() {
@@ -88,7 +89,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        switch rows[indexPath.row] {
+        let detailsVC = DetailsViewController.loadFromNib()
+        let row = rows[indexPath.row]
+        switch row {
         case .soundBoard:
             AVPlayerManager.shared.soundList = SoundManager.shared.soundBoardList
         case .themeSong:
@@ -96,5 +99,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         case .soundTrack:
             AVPlayerManager.shared.soundList = SoundManager.shared.soundTrackList
         }
+        detailsVC.soundList = AVPlayerManager.shared.soundList
+        detailsVC.headImg = row.image()
+        detailsVC.isDetailsTab = false
+        navigationController?.pushViewController(detailsVC, animated: true)
     }
 }

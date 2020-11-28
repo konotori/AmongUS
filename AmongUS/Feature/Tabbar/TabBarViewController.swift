@@ -70,9 +70,16 @@ class TabBarViewController: UITabBarController {
             homeNav.tabBarItem = item.item
             return homeNav
         case .fav:
-            let bankNavi = UINavigationController()
-            bankNavi.tabBarItem = item.item
-            return bankNavi
+            let favNav = UINavigationController()
+            favNav.tabBarItem = item.item
+            let detailsVC = DetailsViewController.loadFromNib()
+            detailsVC.shouldReloadAfterFav = true
+            detailsVC.headImg = UIImage(named: "home_header")
+            detailsVC.soundList = SoundManager.shared.favoriteList
+            favNav.viewControllers = [detailsVC]
+            favNav.tabBarItem = item.item
+            favNav.navigationBar.isHidden = true
+            return favNav
         case .like:
             let bankNavi = UINavigationController()
             bankNavi.tabBarItem = item.item

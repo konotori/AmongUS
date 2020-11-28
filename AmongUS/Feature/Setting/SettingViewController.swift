@@ -41,6 +41,7 @@ class SettingViewController: UIViewController {
         super.viewDidLoad()
         
         setupTable()
+        navigationController?.navigationBar.barStyle = .black
     }
     
     private func setupTable() {
@@ -108,6 +109,10 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     private func feedbackAction() {
+        if !MFMailComposeViewController.canSendMail() {
+            return
+        }
+        
         let mailVC = MFMailComposeViewController()
         mailVC.mailComposeDelegate = self
         mailVC.setToRecipients([])

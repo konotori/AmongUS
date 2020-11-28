@@ -7,5 +7,6 @@ target 'AmongUS' do
 
   # Pods for AmongUS
   pod 'Alamofire', '~> 4.6'
+  pod 'FSPagerView'
 
 end

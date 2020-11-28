@@ -11,7 +11,9 @@ import AVFoundation
 
 class AVPlayerManager {
     static let shared = AVPlayerManager()
-    private init() {}
+    private init() {
+        NotificationCenter.default.addObserver(self, selector: #selector(didPlayToEnd), name: .AVPlayerItemDidPlayToEndTime, object: nil)
+    }
     
     private var player: AVPlayer!
     var soundList: [SoundModel] = []
@@ -26,6 +28,7 @@ class AVPlayerManager {
             let item = AVPlayerItem(url: URL(string: baseSoundURL + sound.fileUrl)!)
             item.preferredPeakBitRate = 2
             player = AVPlayer(playerItem: item)
+            APIClient.shared.download(sound: sound, completion: nil)
         }
         
         if soundList.contains(sound) {
@@ -44,14 +47,22 @@ class AVPlayerManager {
     }
     
     func next() {
-        if currentIndex != -1 && currentIndex < soundList.count - 1 {
-            play(sound: soundList[currentIndex + 1])
+        if currentIndex != -1 {
+            if currentIndex < soundList.count - 1 {
+                play(sound: soundList[currentIndex + 1])
+            } else {
+                play(sound: soundList[0])
+            }
         }
     }
     
     func prev() {
-        if currentIndex <= 0 {
+        if currentIndex > 0 {
             play(sound: soundList[currentIndex - 1])
         }
+    }
+    
+    @objc private func didPlayToEnd() {
+        next()
     }
 }

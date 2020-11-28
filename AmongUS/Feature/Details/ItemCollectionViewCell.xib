@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="ComicSansMSBold.ttf">
+            <string>ComicSansMS-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="ItemCollectionViewCell" customModule="AmongUS" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="86" height="140"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="86" height="140"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P6Y-5d-BUc">
+                        <rect key="frame" x="0.0" y="0.0" width="86" height="140"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="U44-Y6-04E">
+                                <rect key="frame" x="10" y="10" width="66" height="66"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="66" id="EUh-CH-S5W"/>
+                                    <constraint firstAttribute="height" constant="66" id="IIn-5o-Ka6"/>
+                                    <constraint firstAttribute="width" secondItem="U44-Y6-04E" secondAttribute="height" id="Mhr-MF-hwj"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="aasdfasdfasdfasdfasdfasdf" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Il-zW-ZgE">
+                                <rect key="frame" x="0.0" y="86" width="86" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="cGD-nR-y3t"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ComicSansMS-Bold" family="Comic Sans MS" pointSize="13"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="5Il-zW-ZgE" secondAttribute="trailing" id="HTC-cO-cdK"/>
+                            <constraint firstItem="U44-Y6-04E" firstAttribute="leading" secondItem="P6Y-5d-BUc" secondAttribute="leading" constant="10" id="JVw-64-dbb"/>
+                            <constraint firstItem="U44-Y6-04E" firstAttribute="top" secondItem="P6Y-5d-BUc" secondAttribute="top" constant="10" id="JwQ-xn-gvZ"/>
+                            <constraint firstAttribute="trailing" secondItem="U44-Y6-04E" secondAttribute="trailing" constant="10" id="MSY-JT-jQA"/>
+                            <constraint firstItem="5Il-zW-ZgE" firstAttribute="leading" secondItem="P6Y-5d-BUc" secondAttribute="leading" id="R4m-cs-C4A"/>
+                            <constraint firstAttribute="bottom" secondItem="5Il-zW-ZgE" secondAttribute="bottom" constant="10" id="UqW-xA-i1I"/>
+                            <constraint firstItem="5Il-zW-ZgE" firstAttribute="top" secondItem="U44-Y6-04E" secondAttribute="bottom" constant="10" id="dLk-1w-ZFa"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="P6Y-5d-BUc" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="2hO-Du-8Dr"/>
+                <constraint firstAttribute="trailing" secondItem="P6Y-5d-BUc" secondAttribute="trailing" id="Al4-wJ-p2Z"/>
+                <constraint firstItem="P6Y-5d-BUc" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="DN3-Ae-4E6"/>
+                <constraint firstAttribute="bottom" secondItem="P6Y-5d-BUc" secondAttribute="bottom" id="icw-Jo-ajk"/>
+            </constraints>
+            <size key="customSize" width="141" height="140"/>
+            <connections>
+                <outlet property="itemImage" destination="U44-Y6-04E" id="nb7-F6-9IX"/>
+                <outlet property="itemName" destination="5Il-zW-ZgE" id="6c3-XH-UxD"/>
+            </connections>
+            <point key="canvasLocation" x="168.11594202898553" y="103.79464285714285"/>
+        </collectionViewCell>
+    </objects>
+</document>

@@ -10,7 +10,7 @@ import Foundation
 import Alamofire
 
 let baseURL = "http://topxmedia.club/sound-among/"
-let baseSoundURL = "topxmedia.club/file-sound-among/"
+let baseSoundURL = "http://topxmedia.club/file-sound-among/"
 
 class APIClient {
     static let shared = APIClient()
@@ -45,12 +45,8 @@ class APIClient {
         
         Alamofire.download(baseSoundURL + sound.fileUrl, encoding: JSONEncoding.default, headers: headers, to: destination).responseData(completionHandler: { response in
             if response.result.isSuccess {
-                if let urlDes = response.destinationURL, !urlDes.absoluteString.isEmpty {
-                    let url = urlDes.absoluteString
-                    let docDir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-                    let newUrl = url.replacingOccurrences(of: docDir.absoluteString, with: "")
-                    completion?(newUrl)
-                }
+                sound.localUrl = "\(sound.name).mp3"
+                SoundManager.shared.save()
             }
         })
     }
