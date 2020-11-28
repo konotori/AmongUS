@@ -15,6 +15,7 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var backButton: DesignableButton!
     @IBOutlet weak var headImage: UIImageView!
     @IBOutlet weak var favButton: DesignableButton!
+    @IBOutlet weak var playButton: UIButton!
     
     let cellID = "PageCollectionViewCell"
     var soundList: [SoundModel] = []
@@ -96,18 +97,32 @@ class DetailsViewController: UIViewController {
     }
     
     @IBAction func shuffleAction(_ sender: UIButton) {
+        guard let randomItem = soundList.randomElement() else {
+            return
+        }
+        
+        AVPlayerManager.shared.initPlayer(sound: randomItem)
+        AVPlayerManager.shared.play()
     }
     
     @IBAction func playBack(_ sender: UIButton) {
         AVPlayerManager.shared.prev()
+        playButton.setImage(UIImage(named: "pause"), for: .normal)
     }
     
     @IBAction func playerPause(_ sender: UIButton) {
-        AVPlayerManager.shared.pause()
+        if AVPlayerManager.shared.isPlaying {
+            AVPlayerManager.shared.pause()
+            playButton.setImage(UIImage(named: "play"), for: .normal)
+        } else {
+            AVPlayerManager.shared.play()
+            playButton.setImage(UIImage(named: "pause"), for: .normal)
+        }
     }
     
     @IBAction func playerNext(_ sender: UIButton) {
         AVPlayerManager.shared.next()
+        playButton.setImage(UIImage(named: "pause"), for: .normal)
     }
 }
 
@@ -127,6 +142,10 @@ extension DetailsViewController: FSPagerViewDelegate, FSPagerViewDataSource {
         cell.itemCollection.reloadData()
         cell.didSelectSoundCallback = { [weak self] sound in
             self?.selectedSound = sound
+            self?.playButton.setImage(UIImage(named: "pause"), for: .normal)
+        }
+        cell.didFavCompletion = { [weak self] in
+            self?.setupFavButton()
         }
         
         return cell

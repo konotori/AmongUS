@@ -16,6 +16,7 @@ class PageCollectionViewCell: FSPagerViewCell {
     var sounds: [SoundModel] = []
     var didSelectSoundCallback: ((SoundModel) -> ())?
     let cellID = "ItemCollectionViewCell"
+    var didFavCompletion: (() -> ())?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -42,8 +43,15 @@ extension PageCollectionViewCell: UICollectionViewDelegateFlowLayout, UICollecti
         
         let sound = sounds[indexPath.row]
         cell.reset()
+        cell.sound = sound
         cell.itemName.text = sound.name
         cell.itemImage.image = setupItemImage(name: sound.name)
+        cell.favButton.setImage(UIImage(named: sound.isFavorite ? "ic_faved" : "ic_fav"), for: .normal)
+        cell.favCompletion = { [weak self] favSound in
+            if sound == favSound {
+                self?.didFavCompletion?()
+            }
+        }
         
         return cell
     }
@@ -63,12 +71,13 @@ extension PageCollectionViewCell: UICollectionViewDelegateFlowLayout, UICollecti
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = (itemCollection.frame.width - 40) / 3
-        return CGSize(width: width > 85 ? 85 : width, height: 140)
+        let width = (itemCollection.bounds.width - 40) / 3
+        return CGSize(width: width, height: 140)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        AVPlayerManager.shared.play(sound: sounds[indexPath.row])
+        AVPlayerManager.shared.initPlayer(sound: sounds[indexPath.row])
+        AVPlayerManager.shared.play()
         didSelectSoundCallback?(sounds[indexPath.row])
     }
 }

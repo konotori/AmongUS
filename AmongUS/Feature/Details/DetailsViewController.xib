@@ -20,6 +20,7 @@
                 <outlet property="headImage" destination="6PY-gk-W7B" id="73o-2v-Zi7"/>
                 <outlet property="pageControl" destination="PdJ-UA-9d7" id="0TS-fg-tmE"/>
                 <outlet property="pageView" destination="cIA-5i-aCN" id="VnZ-dd-WBQ"/>
+                <outlet property="playButton" destination="JRC-hf-Pio" id="JUi-wQ-4dI"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -123,7 +124,7 @@
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JRC-hf-Pio">
                                             <rect key="frame" x="0.0" y="0.0" width="138" height="46"/>
-                                            <state key="normal" image="pause"/>
+                                            <state key="normal" image="play"/>
                                             <connections>
                                                 <action selector="playerPause:" destination="-1" eventType="touchUpInside" id="8gu-vd-Pyl"/>
                                             </connections>
@@ -226,7 +227,7 @@
     </objects>
     <designables>
         <designable name="BjB-kg-Q6j">
-            <size key="intrinsicContentSize" width="68" height="36"/>
+            <size key="intrinsicContentSize" width="62" height="32"/>
         </designable>
         <designable name="JqB-Sv-VT4">
             <size key="intrinsicContentSize" width="17" height="22"/>
@@ -239,7 +240,7 @@
         <image name="back" width="17" height="13"/>
         <image name="ic_back" width="24" height="24"/>
         <image name="next" width="17" height="13"/>
-        <image name="pause" width="15" height="16"/>
+        <image name="play" width="14" height="15"/>
         <image name="shuffle" width="17" height="15"/>
     </resources>
 </document>

@@ -34,7 +34,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="aasdfasdfasdfasdfasdfasdf" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Il-zW-ZgE">
-                                <rect key="frame" x="0.0" y="86" width="86" height="44"/>
+                                <rect key="frame" x="10" y="86" width="66" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="cGD-nR-y3t"/>
                                 </constraints>
@@ -42,16 +42,30 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3jk-nq-vvB">
+                                <rect key="frame" x="66" y="0.0" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="N0r-xm-Uhm"/>
+                                    <constraint firstAttribute="height" constant="20" id="YAa-Jj-1mJ"/>
+                                </constraints>
+                                <state key="normal" image="ic_fav"/>
+                                <connections>
+                                    <action selector="favAction:" destination="gTV-IL-0wX" eventType="touchUpInside" id="mUD-MW-Pef"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="5Il-zW-ZgE" secondAttribute="trailing" id="HTC-cO-cdK"/>
-                            <constraint firstItem="U44-Y6-04E" firstAttribute="leading" secondItem="P6Y-5d-BUc" secondAttribute="leading" constant="10" id="JVw-64-dbb"/>
+                            <constraint firstItem="U44-Y6-04E" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="P6Y-5d-BUc" secondAttribute="leading" constant="10" id="7n2-q9-KNK"/>
+                            <constraint firstAttribute="trailing" secondItem="5Il-zW-ZgE" secondAttribute="trailing" constant="10" id="HTC-cO-cdK"/>
                             <constraint firstItem="U44-Y6-04E" firstAttribute="top" secondItem="P6Y-5d-BUc" secondAttribute="top" constant="10" id="JwQ-xn-gvZ"/>
-                            <constraint firstAttribute="trailing" secondItem="U44-Y6-04E" secondAttribute="trailing" constant="10" id="MSY-JT-jQA"/>
-                            <constraint firstItem="5Il-zW-ZgE" firstAttribute="leading" secondItem="P6Y-5d-BUc" secondAttribute="leading" id="R4m-cs-C4A"/>
+                            <constraint firstAttribute="trailing" secondItem="3jk-nq-vvB" secondAttribute="trailing" id="P6a-lh-6fb"/>
+                            <constraint firstItem="5Il-zW-ZgE" firstAttribute="leading" secondItem="P6Y-5d-BUc" secondAttribute="leading" constant="10" id="R4m-cs-C4A"/>
                             <constraint firstAttribute="bottom" secondItem="5Il-zW-ZgE" secondAttribute="bottom" constant="10" id="UqW-xA-i1I"/>
                             <constraint firstItem="5Il-zW-ZgE" firstAttribute="top" secondItem="U44-Y6-04E" secondAttribute="bottom" constant="10" id="dLk-1w-ZFa"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="U44-Y6-04E" secondAttribute="trailing" constant="10" id="geG-X2-ym4"/>
+                            <constraint firstItem="U44-Y6-04E" firstAttribute="centerX" secondItem="P6Y-5d-BUc" secondAttribute="centerX" id="tGI-Zr-dcM"/>
+                            <constraint firstItem="3jk-nq-vvB" firstAttribute="top" secondItem="P6Y-5d-BUc" secondAttribute="top" id="z9u-c9-vnj"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -65,10 +79,14 @@
             </constraints>
             <size key="customSize" width="141" height="140"/>
             <connections>
+                <outlet property="favButton" destination="3jk-nq-vvB" id="dwk-b0-FPR"/>
                 <outlet property="itemImage" destination="U44-Y6-04E" id="nb7-F6-9IX"/>
                 <outlet property="itemName" destination="5Il-zW-ZgE" id="6c3-XH-UxD"/>
             </connections>
             <point key="canvasLocation" x="168.11594202898553" y="103.79464285714285"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="ic_fav" width="16" height="14"/>
+    </resources>
 </document>

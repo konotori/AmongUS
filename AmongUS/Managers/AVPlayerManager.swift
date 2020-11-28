@@ -18,8 +18,9 @@ class AVPlayerManager {
     private var player: AVPlayer!
     var soundList: [SoundModel] = []
     private var currentIndex: Int = -1
+    var isPlaying: Bool = false
     
-    func play(sound: SoundModel) {
+    func initPlayer(sound: SoundModel) {
         if !sound.localUrl.isEmpty {
             var localURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
             localURL.appendPathComponent(sound.localUrl)
@@ -34,8 +35,11 @@ class AVPlayerManager {
         if soundList.contains(sound) {
             currentIndex = soundList.firstIndex(of: sound) ?? -1
         }
-        
+    }
+    
+    func play() {
         player.play()
+        isPlaying = true
     }
     
     func pause() {
@@ -44,21 +48,25 @@ class AVPlayerManager {
         }
         
         player.pause()
+        isPlaying = false
     }
     
     func next() {
         if currentIndex != -1 {
             if currentIndex < soundList.count - 1 {
-                play(sound: soundList[currentIndex + 1])
+                initPlayer(sound: soundList[currentIndex + 1])
+                play()
             } else {
-                play(sound: soundList[0])
+                initPlayer(sound: soundList[0])
+                play()
             }
         }
     }
     
     func prev() {
         if currentIndex > 0 {
-            play(sound: soundList[currentIndex - 1])
+            initPlayer(sound: soundList[currentIndex - 1])
+            play()
         }
     }
     
