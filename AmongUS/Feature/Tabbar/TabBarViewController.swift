@@ -25,6 +25,7 @@ class TabBarViewController: UITabBarController {
         tabBar.layer.shadowRadius = 3
         tabBar.layer.shadowColor = UIColor.black.cgColor
         tabBar.layer.shadowOpacity = 0.1
+        tabBar.selectionIndicatorImage = UIImage(named: "tabbar_indi")
     }
     
     private func setupShareButton() {
