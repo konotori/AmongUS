@@ -79,5 +79,6 @@ extension PageCollectionViewCell: UICollectionViewDelegateFlowLayout, UICollecti
         AVPlayerManager.shared.initPlayer(sound: sounds[indexPath.row])
         AVPlayerManager.shared.play()
         didSelectSoundCallback?(sounds[indexPath.row])
+        RateManager.shared.countRate()
     }
 }

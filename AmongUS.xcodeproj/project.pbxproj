@@ -24,6 +24,7 @@
 		6F3F6E002572304600147D77 /* ItemCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F3F6DFE2572304600147D77 /* ItemCollectionViewCell.xib */; };
 		6F3F6E04257257B900147D77 /* PageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3F6E02257257B900147D77 /* PageCollectionViewCell.swift */; };
 		6F3F6E05257257B900147D77 /* PageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F3F6E03257257B900147D77 /* PageCollectionViewCell.xib */; };
+		6F80D3692573FCF90037A6BE /* RateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F80D3682573FCF90037A6BE /* RateManager.swift */; };
 		6F99664D2571643200818727 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F99664C2571643200818727 /* SoundManager.swift */; };
 		6F9966502571707F00818727 /* ExUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F99664F2571707F00818727 /* ExUIColor.swift */; };
 		6F9966542572054500818727 /* WebViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9966522572054500818727 /* WebViewViewController.swift */; };
@@ -62,6 +63,7 @@
 		6F3F6DFE2572304600147D77 /* ItemCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemCollectionViewCell.xib; sourceTree = "<group>"; };
 		6F3F6E02257257B900147D77 /* PageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageCollectionViewCell.swift; sourceTree = "<group>"; };
 		6F3F6E03257257B900147D77 /* PageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PageCollectionViewCell.xib; sourceTree = "<group>"; };
+		6F80D3682573FCF90037A6BE /* RateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateManager.swift; sourceTree = "<group>"; };
 		6F99664C2571643200818727 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		6F99664F2571707F00818727 /* ExUIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExUIColor.swift; sourceTree = "<group>"; };
 		6F9966522572054500818727 /* WebViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewViewController.swift; sourceTree = "<group>"; };
@@ -236,6 +238,7 @@
 				6FDA80DF25710375000220B4 /* APIClient.swift */,
 				6FDA80E6257104FE000220B4 /* AVPlayerManager.swift */,
 				6F99664C2571643200818727 /* SoundManager.swift */,
+				6F80D3682573FCF90037A6BE /* RateManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -383,6 +386,7 @@
 				6F3F6E04257257B900147D77 /* PageCollectionViewCell.swift in Sources */,
 				6FDA80EF25710697000220B4 /* ExUIViewController.swift in Sources */,
 				6FDA80CF2571024E000220B4 /* SettingTableViewCell.swift in Sources */,
+				6F80D3692573FCF90037A6BE /* RateManager.swift in Sources */,
 				1AF6E7232570DD430038C88C /* AppDelegate.swift in Sources */,
 				6FDA80D6257102A9000220B4 /* DesignableViews.swift in Sources */,
 				6F3F6DFF2572304600147D77 /* ItemCollectionViewCell.swift in Sources */,

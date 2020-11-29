@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import StoreKit
 import MessageUI
 
 enum Setting {
@@ -54,7 +53,7 @@ class SettingViewController: UIViewController {
 
 extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return 6
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -63,7 +62,7 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         cell.reset()
-        cell.separatorView.isHidden = indexPath.row == 4
+        cell.separatorView.isHidden = indexPath.row == 5
         cell.settingLabel.text = settingList[indexPath.row].display
         
         return cell
@@ -73,38 +72,27 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
         let webVC = WebViewViewController()
         switch settingList[indexPath.row] {
         case .about:
-            // TO-DO: Change url
-            webVC.url = "https://www.google.com"
-            present(webVC, animated: true, completion: nil)
+            let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
+            let alert = UIAlertController(title: "About app", message: "Version: \(version ?? "1.0")", preferredStyle: .alert)
+            let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alert.addAction(action)
+            self.present(alert, animated: true, completion: nil)
         case .feedback:
             feedbackAction()
         case .policy:
             // TO-DO: Change url
-            webVC.url = "https://www.google.com"
+            webVC.url = "https://hthmobile.github.io/among_us_soundboard/policy.html"
             present(webVC, animated: true, completion: nil)
         case .terms:
             // TO-DO: Change url
-            webVC.url = "https://www.google.com"
+            webVC.url = "https://hthmobile.github.io/among_us_soundboard/terms_of_use.html"
             present(webVC, animated: true, completion: nil)
         case .rate:
-            rateAction()
+            RateManager.shared.rateAction()
         case .more:
             // TO-DO: Change url
-            webVC.url = "https://www.google.com"
+            webVC.url = "https://apps.apple.com/us/developer/thao-nguyen/id930075717"
             present(webVC, animated: true, completion: nil)
-        }
-    }
-    
-    private func rateAction() {
-        if #available(iOS 10.3, *) {
-            SKStoreReviewController.requestReview()
-            // TO-DO: Change url app
-        } else if let url = URL(string: "itms-apps://itunes.apple.com/app/" + "appId") {
-            if #available(iOS 10, *) {
-                UIApplication.shared.open(url, options: [:], completionHandler: nil)
-            } else {
-                UIApplication.shared.openURL(url)
-            }
         }
     }
     
@@ -113,16 +101,22 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
             return
         }
         
+        let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as AnyObject
+        let build = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as AnyObject
         let mailVC = MFMailComposeViewController()
-        mailVC.mailComposeDelegate = self
-        mailVC.setToRecipients([])
-        mailVC.setSubject("Subject for email")
-        mailVC.setMessageBody("Email message string", isHTML: false)
+        
+        let appName = Bundle.main.infoDictionary?["CFBundleDisplayName"] as? String
+        let title = "Feedback\(" \(appName ?? "")")"
+        var messeageBody = String()
+        messeageBody.append("\n\n\n--------------------\n")
+        messeageBody.append("System version: \(UIDevice.current.systemVersion)\n")
+        messeageBody.append("Model name: \(UIDevice.current.model)\n")
+        messeageBody.append("App version: \(version).\(build)\n")
+        
+        mailVC.setToRecipients(["hthmobilesoft@gmail.com"])
+        mailVC.setSubject(title)
+        mailVC.setMessageBody(messeageBody, isHTML: false)
         
         present(mailVC, animated: true, completion: nil)
     }
-}
-
-extension SettingViewController: MFMailComposeViewControllerDelegate {
-    
 }

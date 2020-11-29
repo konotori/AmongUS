@@ -39,8 +39,7 @@ class TabBarViewController: UITabBarController {
     }
     
     @objc private func shareApp() {
-        // TO-DO: Change url app
-        if let urlStr = URL(string: "google.com") {
+        if let urlStr = URL(string: "https://apps.apple.com/us/app/id1542486065") {
             let objectsToShare = [urlStr]
             let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
 

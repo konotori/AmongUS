@@ -49,6 +49,16 @@ class HomeViewController: UIViewController {
         navigationController?.navigationBar.barStyle = .black
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if !RateManager.shared.didShowFirstTimeRate {
+            RateManager.shared.rateAction()
+            RateManager.shared.didShowFirstTimeRate = true
+            UserDefaults.standard.setValue(true, forKey: "firstRate")
+        }
+    }
+    
     func setupTable() {
         self.tableView.dataSource = self
         self.tableView.delegate = self
