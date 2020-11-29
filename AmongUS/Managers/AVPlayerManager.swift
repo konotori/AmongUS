@@ -17,7 +17,7 @@ class AVPlayerManager {
     
     private var player: AVPlayer!
     var soundList: [SoundModel] = []
-    private var currentIndex: Int = -1
+    var currentIndex: Int = -1
     var isPlaying: Bool = false
     
     func initPlayer(sound: SoundModel) {
@@ -38,6 +38,10 @@ class AVPlayerManager {
     }
     
     func play() {
+        guard let player = player else {
+            return
+        }
+        
         player.play()
         isPlaying = true
     }

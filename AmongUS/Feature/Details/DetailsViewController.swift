@@ -103,6 +103,7 @@ class DetailsViewController: UIViewController {
         
         AVPlayerManager.shared.initPlayer(sound: randomItem)
         AVPlayerManager.shared.play()
+        playButton.setImage(UIImage(named: "pause"), for: .normal)
     }
     
     @IBAction func playBack(_ sender: UIButton) {
@@ -115,6 +116,10 @@ class DetailsViewController: UIViewController {
             AVPlayerManager.shared.pause()
             playButton.setImage(UIImage(named: "play"), for: .normal)
         } else {
+            if AVPlayerManager.shared.currentIndex == -1 {
+                return
+            }
+            
             AVPlayerManager.shared.play()
             playButton.setImage(UIImage(named: "pause"), for: .normal)
         }
